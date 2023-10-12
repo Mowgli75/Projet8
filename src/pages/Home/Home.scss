@@ -1,0 +1,29 @@
+.home{
+    
+    img {
+        width: 100%;
+        padding: 20px;
+        
+    }
+  
+    .array{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: #F6F6F6;
+    margin: 20px;
+    box-sizing: border-box;
+    gap: 20px;
+  }
+
+  .array a{
+    width: 30%;
+    margin: 10px;
+    text-align: start;
+    position: relative;
+
+  }
+
+
+}
