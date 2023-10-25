@@ -1,30 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router";
-
+import React, { useState } from "react";
 import Data from "../../data/logements.json";
 import "../Carrousel/Carrousel.scss";
-import Error404 from "../../pages/Error404/Error404";
 import ArrowLeft from "../assets/arrow-left.png";
 import ArrowRight from "../assets/arrow-right.png";
+import { useParams } from "react-router";
 
-export default function Logement() {
+export default function Carrousel() {
   const { id } = useParams();
-  const [logement, setLogement] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const logement = Data.find((appart) => appart.id === id);
 
-  // Recherchez le logement par ID dans le tableau Data
-  useEffect(() => {
-    const foundLogement = Data.find((appart) => appart.id === id);
-    setLogement(foundLogement);
-  }, [id]);
-
-  if (!logement) {
-    return (
-      <div>
-        <Error404 />
-      </div>
-    );
-  }
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -48,6 +33,7 @@ export default function Logement() {
           {logement.pictures.map((pictures, index) => (
             <div className="carousel-item" key={index}>
               <img src={pictures} alt={logement.title}/>
+              
             </div>
           ))}
         </div>
@@ -58,6 +44,7 @@ export default function Logement() {
         <img src={ArrowRight} alt="arrowRight" />{" "}
       </button>
       </div>
+      <p className="numberSlide"> {currentIndex + 1} / {logement.pictures.length} </p>
     </div>
   );
 }

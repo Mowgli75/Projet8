@@ -1,4 +1,5 @@
 import { useParams } from "react-router";
+import { useState, useEffect } from "react";
 import Data from "../../data/logements.json";
 import Error404 from "../Error404/Error404";
 import "../Logement/Logement.scss";
@@ -9,6 +10,31 @@ import StarEmpty from "../../components/assets/etoileVide.png"
 
 const Logement = () => {
   const { id } = useParams();
+  const [logement, setLogement] = useState(null);
+  const [loading, setLoading] = useState(true);
+ 
+  useEffect(() => {
+    const logement = Data.find((appart) => appart.id === id);
+    setTimeout(() => {
+    setLogement(logement);
+    setLoading(false);
+  }, 1300);
+  }, [id]); 
+  if (loading) {
+    return (
+      <div className="loader-container">
+        <p>Chargement...</p>
+      </div>
+    );
+  }
+  if (!logement) {
+    return (
+      <div>
+        <Error404 />
+      </div>
+    );
+  }
+
   function generateStarRating(rating) {
     const starArray = [];
     for (let i = 1; i <= 5; i++) {
@@ -24,16 +50,9 @@ const Logement = () => {
     }
     return starArray;
 }
-  // Recherchez le logement correspondant à l'ID dans vos données
-  const logement = Data.find((appart) => appart.id === id);
 
-  if (!logement) {
-    return (
-      <div>
-        <Error404 />
-      </div>
-    );
-  }
+//   testState
+// if  (!testState) return <div>Chargement...</div>
 
   return (
     <section className="logement-container">
@@ -67,8 +86,8 @@ const Logement = () => {
         <Collapse title={`Description`} content={logement.description} />
         <Collapse
           title={`Equipements`}
-          content={logement.equipments.map((equipments, index) => (
-            <li key={index}>{equipments}</li>
+          content={logement.equipments.map((equipment, index) => (
+            <li key={index}>{equipment}</li>
           ))}
         />
       </div>

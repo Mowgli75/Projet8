@@ -4,6 +4,7 @@ import fleche from "../assets/fleche.svg";
 
 export default function Collapse({ title, content }) {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <section className="collapse">
       <div className="collapse-title">
