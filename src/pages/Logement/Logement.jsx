@@ -12,13 +12,19 @@ const Logement = () => {
   const { id } = useParams();
   const [logement, setLogement] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  // let log = null
+  // const setLog = (data) => {
+  //   log = data
+  // }
  
   useEffect(() => {
-    const logement = Data.find((appart) => appart.id === id);
+    const foundAppart = Data.find((appart) => appart.id === id);
     setTimeout(() => {
-    setLogement(logement);
+    setLogement(foundAppart);
     setLoading(false);
   }, 1300);
+
   }, [id]); 
   if (loading) {
     return (
@@ -61,7 +67,7 @@ const Logement = () => {
         {/* <img src={logement.cover} alt={logement.title} /> */}
       </div>
       <div className="hebergement-container">
-      <div>
+      <div className="hebergement-title">
         <h2>{logement.title}</h2>
         <h4>{logement.location}</h4>
         <div className="logement-tags">
@@ -72,7 +78,7 @@ const Logement = () => {
           </ul>
         </div>
       </div>
-      <div>
+      <div className="logement-hostRating">
         <div className="logement-host">
           {logement.host.name}
           <img src={logement.host.picture} alt={logement.host.name} />

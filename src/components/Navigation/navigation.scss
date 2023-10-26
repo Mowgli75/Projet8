@@ -3,6 +3,8 @@ $color-1: rgb(271,78,78);
 .navigation {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
 
     ul {
       display: flex;

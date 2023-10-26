@@ -110,3 +110,27 @@ $color-2: white;
         z-index: -1;
         }
     }
+
+   @media screen and (max-width: 425px) {
+    .hebergement-container{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .hebergement-title{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .logement-hostRating{
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+    .logement-collapse{
+       display: flex;
+       flex-wrap: wrap;
+    }
+   }
