@@ -8,7 +8,7 @@ export default function Error404() {
         <div className='error'>
             <img src={Error} alt="Error404" />
             <h1>Oups la page que vous demandez n'existe pas.</h1>
-            <NavLink to="/home"><p>Retourner sur la page d'accueil</p></NavLink>
+            <NavLink to="/"><p>Retourner sur la page d'accueil</p></NavLink>
         </div>
     )
 }

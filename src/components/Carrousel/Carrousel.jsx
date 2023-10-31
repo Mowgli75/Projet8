@@ -22,6 +22,7 @@ export default function Carrousel() {
       prevIndex === logement.pictures.length - 1 ? 0 : prevIndex + 1
     );
   };
+  const showNavigation = logement.pictures.length > 1;
 
   return (
     <div>
@@ -37,12 +38,16 @@ export default function Carrousel() {
             </div>
           ))}
         </div>
+        {showNavigation && (
+          <div>
         <button className="carrousel-btn prev" onClick={prevSlide}>
         <img src={ArrowLeft} alt="arrowLeft" />{" "}
       </button>
       <button className="carrousel-btn next" onClick={nextSlide}>
+     
         <img src={ArrowRight} alt="arrowRight" />{" "}
-      </button>
+      </button></div>
+      )}
       </div>
       <p className="numberSlide"> {currentIndex + 1} / {logement.pictures.length} </p>
     </div>

@@ -57,12 +57,11 @@ const Logement = () => {
     return starArray;
 }
 
-//   testState
-// if  (!testState) return <div>Chargement...</div>
+
 
   return (
     <section className="logement-container">
-      <div>
+      <div className="carrousel-container">
         <Carrousel />
         {/* <img src={logement.cover} alt={logement.title} /> */}
       </div>
