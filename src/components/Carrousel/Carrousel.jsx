@@ -33,23 +33,24 @@ export default function Carrousel() {
         >
           {logement.pictures.map((pictures, index) => (
             <div className="carousel-item" key={index}>
-              <img src={pictures} alt={logement.title}/>
-              
+              <img src={pictures} alt={logement.title} />
+
             </div>
           ))}
         </div>
         {showNavigation && (
-          <div>
-        <button className="carrousel-btn prev" onClick={prevSlide}>
-        <img src={ArrowLeft} alt="arrowLeft" />{" "}
-      </button>
-      <button className="carrousel-btn next" onClick={nextSlide}>
-     
-        <img src={ArrowRight} alt="arrowRight" />{" "}
-      </button></div>
-      )}
+          <>
+            <button className="carrousel-btn prev" onClick={prevSlide}>
+              <img src={ArrowLeft} alt="arrowLeft" />{" "}
+            </button>
+            <button className="carrousel-btn next" onClick={nextSlide}>
+
+              <img src={ArrowRight} alt="arrowRight" />{" "}
+            </button>
+          </>
+        )}
       </div>
-      <p className="numberSlide"> {currentIndex + 1} / {logement.pictures.length} </p>
+      {showNavigation && <p className="numberSlide"> {currentIndex + 1} / {logement.pictures.length} </p>}
     </div>
   );
 }

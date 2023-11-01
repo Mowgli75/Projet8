@@ -3,7 +3,9 @@
     img {
         width: 100%;
         padding: 20px;
-        
+        height: 223px;
+        opacity: 1;
+        object-fit: cover;
     }
   
     .array{
@@ -24,6 +26,7 @@
     text-align: start;
     position: relative;
   }
+  
 }
 
 @media screen  and (max-width : 426px){

@@ -1,4 +1,18 @@
+.banner {
+  position: relative;
+  width: 100%;
 
-@media screen and (max-width:425px ) {
-   img {width: 100%;} 
+  & h2 {
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    color: white;
+    font-size: xxx-large;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  img {
+    width: 100%;
+  }
 }

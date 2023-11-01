@@ -6,12 +6,11 @@ import '../Home/Home.scss'
 
 export default function Home() {
 
-console.log(Data)
     return (
       <main>  
          <div className='home'>
             
-            <Banner />
+            <Banner title={"Chez vous, partout et ailleurs "} />
             <div className='array'>
               
             {Data.map(appart => <Thumb key={appart.id} appart={appart} />)}
